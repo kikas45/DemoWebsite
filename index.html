@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moor Advice Browser</title>
+  <title>Web Viewer</title>
   <style>
     html, body {
       height: 100%;
@@ -14,41 +14,25 @@
       flex-direction: column;
     }
 
-    /* Toolbar */
+    /* Toolbar styling */
     .toolbar {
       background-color: #0b3d91;
-      color: white;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .toolbar h1 {
-      font-size: 18px;
-      margin: 0;
-      padding-right: 10px;
-      white-space: nowrap;
-    }
-
-    .toolbar-controls {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .toolbar input[type="text"] {
       flex: 1;
-      padding: 8px 12px;
+      padding: 10px;
       border: none;
       border-radius: 6px;
       font-size: 16px;
     }
 
     .toolbar button {
-      padding: 8px 16px;
+      padding: 10px 20px;
       font-size: 16px;
       background-color: #ffffff;
       color: #0b3d91;
@@ -62,7 +46,6 @@
       background-color: #dfe9ff;
     }
 
-    /* Iframe fills the rest of the page */
     iframe {
       flex-grow: 1;
       width: 100%;
@@ -72,11 +55,8 @@
 </head>
 <body>
   <div class="toolbar">
-    <h1>Moor Advice</h1>
-    <div class="toolbar-controls">
-      <input type="text" id="urlInput" placeholder="Enter website URL (e.g. example.com)" />
-      <button onclick="loadSite()">Go</button>
-    </div>
+    <input type="text" id="urlInput" placeholder="Enter website URL (e.g. example.com)" />
+    <button onclick="loadSite()">Go</button>
   </div>
 
   <iframe id="siteFrame" src="https://example.com"></iframe>
