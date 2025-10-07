@@ -15,13 +15,34 @@
       color: #0b3d91;
     }
     p {
-      font-size: 20px;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #0b3d91;
+      border-radius: 8px;
       margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background-color: #0b3d91;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #072b63;
     }
     iframe {
       margin-top: 30px;
       width: 80%;
-      height: 400px;
+      height: 500px;
       border: 2px solid #0b3d91;
       border-radius: 10px;
     }
@@ -29,10 +50,35 @@
 </head>
 <body>
   <h1>Moor Advice Demo Page</h1>
-  <p>This is a test page hosted on Firebase. It allows embedding into iframes.</p>
-  
-  <iframe src="https://example.com"></iframe>
-  
-  <p>If you see content inside the box above, embedding works 🎉</p>
+  <p>Enter a URL below and click "Load Site" to view it inside the frame.</p>
+
+  <div>
+    <input type="text" id="urlInput" placeholder="https://example.com" />
+    <button onclick="loadSite()">Load Site</button>
+  </div>
+
+  <iframe id="siteFrame" src="https://example.com"></iframe>
+
+  <p>If the site loads inside the box above, embedding works 🎉</p>
+
+  <script>
+    function loadSite() {
+      const input = document.getElementById('urlInput').value.trim();
+      const iframe = document.getElementById('siteFrame');
+      
+      if (!input) {
+        alert('Please enter a URL.');
+        return;
+      }
+
+      // Add https:// if the user forgot it
+      let url = input;
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+
+      iframe.src = url;
+    }
+  </script>
 </body>
 </html>
